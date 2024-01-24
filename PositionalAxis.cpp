@@ -7,31 +7,6 @@
 #include "MatrixOperations.cpp"
 
 /*
-    we can use these functions to build a C++ ASCII framework
-*/
-
-
-/*
-    Genius idea: ASCII dominos:
-
-    Project Idea:
-    C++ Domino simulator (creative endeavor)
-ß
-    | | | | |
-
-    animation;
-
-    | | | | | |
-
-    upon tip over:
-
-    if(domino == '/')
-        next domino in line:
-
-        vector<char>dominos(10,'|');
-*/
-
-/*
     1/23/2024: 5:09 AM
     *Personal note:
         
