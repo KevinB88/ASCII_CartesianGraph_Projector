@@ -36,7 +36,7 @@ void generate_bounds(vector<vector<T>>&matrix, int quadrant){
 }
 
 template<typename T>
-void point_translation(vector<vector<T>>&matrix, pair<int,int>point, int quadrant, T value){
+void point_translation_version1(vector<vector<T>>&matrix, pair<int,int>point, int quadrant, T value){
 
     int t_X;
     int t_Y;
@@ -113,6 +113,88 @@ void point_translation(vector<vector<T>>&matrix, pair<int,int>point, int quadran
         return; 
     }
 }
+
+template<typename T>
+void point_translation_version2(vector<vector<T>>&matrix, pair<pair<int,int>,int>point, T value){
+
+    int t_X;
+    int t_Y;
+    pair<int,int>origin; 
+
+    if(point.second == 1){
+
+        origin = {matrix.size()-1, 0};
+
+        t_X = origin.first - point.first.second;
+        t_Y = origin.second + point.first.first;
+
+        if((t_X < 0 || t_X >= matrix.size()) || (t_Y < 0 || t_Y >= matrix.size())){
+            space();
+            cout << "Point: " << "(" << point.first.first << "," << point.first.second << "), out of bounds!\n";
+            generate_bounds(matrix, point.second);
+            return;
+        }
+            matrix[t_X][t_Y] = value;
+    }
+    else if(point.second == 2){
+
+        origin = {matrix.size()-1,matrix.size()-1};
+
+        /*
+            some sample points:
+            (-1,2)
+            (-2,3)
+            (-4,4)
+        */
+       t_X = origin.first - point.first.second;
+       t_Y = origin.second - (-1 * point.first.first);
+        
+       if((t_X < 0 || t_X >= matrix.size()) || (t_Y < 0 || t_Y >= matrix.size())){
+            space();
+            cout << "Point: " << "(" << point.first.first << "," << point.first.second << "), out of bounds!\n";
+            generate_bounds(matrix, point.second);
+            return;
+        }
+            matrix[t_X][t_Y] = value;
+    }
+    else if(point.second == 3){
+
+        origin = {0, matrix.size()-1};
+
+        t_X = origin.first + (point.first.second * -1);
+        t_Y = origin.second - (point.first.first * -1); 
+
+        if((t_X < 0 || t_X >= matrix.size()) || (t_Y < 0 || t_Y >= matrix.size())){
+            space();
+            cout << "Point: " << "(" << point.first.first << "," << point.first.second << "), out of bounds!\n";
+            generate_bounds(matrix, point.second);
+            return;
+        }
+            matrix[t_X][t_Y] = value;
+    }
+    else if(point.second == 4){
+
+       origin = {0,0};
+        
+        t_X = origin.first + point.first.first;
+        t_Y = origin.second + (-1 * point.first.second);
+
+       if((t_X < 0 || t_X >= matrix.size()) || (t_Y < 0 || t_Y >= matrix.size())){
+            space();
+            cout << "Point: " << "(" << point.first.first << "," << point.first.second << "), out of bounds!\n";
+            generate_bounds(matrix, point.second);
+            return;
+        }
+            matrix[t_Y][t_X] = value;
+    }
+    else{
+        cout << "ERROR: Invalid quadrant: " << point.second << "\n";
+        return; 
+    }
+}
+
+
+
 
 template<typename T>
 void print_matrix(const vector<vector<T>>&matrix){

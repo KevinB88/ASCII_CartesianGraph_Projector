@@ -44,18 +44,18 @@ int main(){
         //* CONTROL ZONE:
                 //*Initial drawing positions (from the X-axis)
                 int A = 0; 
-                int B = 15;
+                int B = 1;
                 //*Initial drawing positions (from the X-axis)
 
-            bool toggleVanish = true;
-            bool toggleSpiral = true;
-            double spiral_index = 0.001;
-            double scalar = 8;
-            double magnitude = 2.125;
-            int timeScale = 15;
-            char filler = ' ';
-            char symbol_A = '>';
-            char symbol_B = '*';
+                        bool toggleVanish = false;
+                        bool toggleSpiral = true;
+                        double spiral_index = 0.001;
+                        double scalar = 8;
+                        double magnitude = 2.125;
+                        int timeScale = 15;
+                        char filler = '|';
+                        char symbol_A = '_';
+                        char symbol_B = '/';
         //* CONTROL ZONE:
 
             /*
@@ -148,37 +148,37 @@ int main(){
         // symbol_A
 
         if(A >= 0 && A <= 90){
-            point_translation(graph[1], point_A, 1, symbol_A);
+            point_translation_version1(graph[1], point_A, 1, symbol_A);
             Q1 = true;
         }
         else if(A > 90 && A <= 180){
-            point_translation(graph[0], point_A, 2, symbol_A);
+            point_translation_version1(graph[0], point_A, 2, symbol_A);
             Q2 = true;
         }
         else if(A > 180 && A <= 270){
-            point_translation(graph[2], point_A, 3, symbol_A);
+            point_translation_version1(graph[2], point_A, 3, symbol_A);
             Q3 = true;
         }
         else if(A > 270 && A <= 360){
-            point_translation(graph[3], point_A, 4, symbol_A);
+            point_translation_version1(graph[3], point_A, 4, symbol_A);
             Q4 = true;
         }
 
           
         if(B >= 0 && B <= 90){
-            point_translation(graph[1], point_B, 1, symbol_B);
+            point_translation_version1(graph[1], point_B, 1, symbol_B);
             Q1 = true;
         }
         else if(B > 90 && B <= 180){
-            point_translation(graph[0], point_B, 2, symbol_B);
+            point_translation_version1(graph[0], point_B, 2, symbol_B);
             Q2 = true;
         }
         else if(B > 180 && B <= 270){
-            point_translation(graph[2], point_B, 3, symbol_B);
+            point_translation_version1(graph[2], point_B, 3, symbol_B);
             Q3 = true;
         }
         else if(B > 270 && B <= 360){
-            point_translation(graph[3], point_B, 4, symbol_B);
+            point_translation_version1(graph[3], point_B, 4, symbol_B);
             Q4 = true;
         }
 

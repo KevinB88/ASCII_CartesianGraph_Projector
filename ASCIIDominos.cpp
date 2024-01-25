@@ -16,7 +16,7 @@ void print(const vector<T>& vec) {
 }
 
 int main() {
-    vector<char> dominos(50, '|');
+    vector<char> dominos(500, '|');
 
     for (int i = 0; i < dominos.size(); i++) {
         print(dominos);
