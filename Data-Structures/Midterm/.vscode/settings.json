@@ -59,6 +59,7 @@
   "files.associations": {
     "vector": "cpp",
     "thread": "cpp",
-    "__threading_support": "cpp"
+    "__threading_support": "cpp",
+    "iostream": "cpp"
   }
 }

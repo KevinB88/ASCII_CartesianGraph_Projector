@@ -41,12 +41,26 @@ void print(const vector<T>&container, bool TIMED, long long TIMER){
 
 
 void print_primes(vector<int>&container){
+
+    int prime_count = 0; 
     
     for(int& i : container){
-        if(isPrime(i)) cout << i << " ";
+        if(isPrime(i)){
+            cout << i << " ";
+            prime_count++;
+        }
     }
-        cout << "\n"; 
+        cout << "Prime count: " << prime_count << "\n"; 
 }
+
+void print_evens(vector<int>&container){
+    for(int& i : container){
+        if(i % 2 == 0) cout << i << " ";
+    }
+        cout << "\n";
+}
+
+
 
 
 vector<int> USC_LIST(int N){
@@ -105,7 +119,8 @@ int main(){
         
         if(list.size() > J){   
             J = list.size(); 
-            this_thread::sleep_for(chrono::milliseconds(50)); 
+            // this_thread::sleep_for(chrono::milliseconds(10)); 
+            this_thread::sleep_for(chrono::seconds(2)); 
              cout << "\n";
         }
         else this_thread::sleep_for(chrono::milliseconds(10)); 
@@ -113,6 +128,8 @@ int main(){
         cout << N << ": ";
         // print(list, false, 0); 
         print_primes(list); 
+        // print_evens(list);
+
 
         N++;
 }
@@ -120,7 +137,7 @@ int main(){
     return 0;
 }
 /*
-   
+    What are some additional sets that can be found within the generated lists?
 
 
 */
